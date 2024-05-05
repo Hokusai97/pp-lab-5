@@ -1,22 +1,27 @@
 import company.beans.Person;
 import company.implementations.EmailMessenger;
+import company.utils.MathUtils;
 
 public class Main {
     public static void main(String[] args) {
         try {
-            Person person1 = new Person("Rafał", 26);
-            System.out.println("Person 1: " + person1.getName() + ", " + person1.getAge());
+            new Person("Rafał", 26);
         } catch (Exception ex) {
             System.out.println(ex);
         }
 
         try {
-            new Person("Rafał2", 126); 
+            new Person("Rafał", 126); 
         } catch (Exception ex) {
             System.out.println(ex);
         }
 
+        int result = MathUtils.add(7, 7);
+
+        System.out.println("Results are: " + result);
+
         EmailMessenger emailMessenger = new EmailMessenger();
-        emailMessenger.sendMessage("Hello World! This is a test email message!");
+
+        emailMessenger.sendMessage("Hello World! This is a test email message! Results are: " + result);
     }
 }
